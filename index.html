@@ -697,7 +697,7 @@
             <ul class="nav-links">
                 <li><a href="#about">Обо мне</a></li>
                 <li><a href="#skills">Навыки</a></li>
-                <li><a href="#projects">Проекты</a></li>
+                <li><a href="https://github.com/aliyavoronkina" target="_blank">Проекты</a></li>
                 <li><a href="#certificates">Сертификаты</a></li>
                 <li><a href="#contact">Контакты</a></li>
             </ul>
@@ -917,78 +917,90 @@
 
 <script>
     // Плавная прокрутка для навигационных ссылок
-    document.querySelectorAll('nav a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+   document.querySelectorAll('nav a').forEach(anchor => {
+       anchor.addEventListener('click', function(e) {
+           const targetId = this.getAttribute('href');
 
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        });
-    });
+           // ДОБАВИЛ: Проверка на внешние ссылки
+           if (targetId.startsWith('http')) {
+               return; // Позволяем перейти по внешней ссылке
+           }
 
-    // Плавная прокрутка для ссылок в футере
-    document.querySelectorAll('footer a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+           e.preventDefault();
+           const targetElement = document.querySelector(targetId);
 
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        });
-    });
+           window.scrollTo({
+               top: targetElement.offsetTop - 80,
+               behavior: 'smooth'
+           });
+       });
+   });
 
-    // Кнопка возврата наверх
-    const backToTopButton = document.querySelector('.back-to-top');
+   // Плавная прокрутка для ссылок в футере
+   document.querySelectorAll('footer a').forEach(anchor => {
+       anchor.addEventListener('click', function(e) {
+           const targetId = this.getAttribute('href');
 
-    window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('visible');
-        } else {
-            backToTopButton.classList.remove('visible');
-        }
-    });
+           // ДОБАВИЛ: Проверка на внешние ссылки
+           if (targetId.startsWith('http')) {
+               return; // Позволяем перейти по внешней ссылке
+           }
 
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    });
+           e.preventDefault();
+           const targetElement = document.querySelector(targetId);
 
-    // Анимация элементов при прокрутке
-    const animatedElements = document.querySelectorAll('.fade-in');
+           window.scrollTo({
+               top: targetElement.offsetTop - 80,
+               behavior: 'smooth'
+           });
+       });
+   });
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.animationPlayState = 'running';
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
+   // Кнопка возврата наверх
+   const backToTopButton = document.querySelector('.back-to-top');
 
-    animatedElements.forEach(element => {
-        element.style.animationPlayState = 'paused';
-        observer.observe(element);
-    });
+   window.addEventListener('scroll', () => {
+       if (window.pageYOffset > 300) {
+           backToTopButton.classList.add('visible');
+       } else {
+           backToTopButton.classList.remove('visible');
+       }
+   });
 
-    // Анимация навыков при наведении с задержкой
-    document.querySelectorAll('.skill-item').forEach((item, index) => {
-        item.addEventListener('mouseenter', () => {
-            item.style.transitionDelay = `${index * 0.05}s`;
-        });
+   backToTopButton.addEventListener('click', () => {
+       window.scrollTo({
+           top: 0,
+           behavior: 'smooth'
+       });
+   });
 
-        item.addEventListener('mouseleave', () => {
-            item.style.transitionDelay = '0s';
-        });
-    });
+   // Анимация элементов при прокрутке
+   const animatedElements = document.querySelectorAll('.fade-in');
+
+   const observer = new IntersectionObserver((entries) => {
+       entries.forEach(entry => {
+           if (entry.isIntersecting) {
+               entry.target.style.animationPlayState = 'running';
+               observer.unobserve(entry.target);
+           }
+       });
+   }, { threshold: 0.1 });
+
+   animatedElements.forEach(element => {
+       element.style.animationPlayState = 'paused';
+       observer.observe(element);
+   });
+
+   // Анимация навыков при наведении с задержкой
+   document.querySelectorAll('.skill-item').forEach((item, index) => {
+       item.addEventListener('mouseenter', () => {
+           item.style.transitionDelay = `${index * 0.05}s`;
+       });
+
+       item.addEventListener('mouseleave', () => {
+           item.style.transitionDelay = '0s';
+       });
+   });
 </script>
 </body>
 </html>
