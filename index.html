@@ -356,6 +356,9 @@
             box-shadow: var(--shadow);
             border: 1px solid rgba(125, 90, 80, 0.1);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .certificate-card:hover {
@@ -381,6 +384,9 @@
 
         .certificate-content {
             padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
         }
 
         .certificate-card h3 {
@@ -394,22 +400,55 @@
             color: var(--text);
             line-height: 1.6;
             font-size: 0.95rem;
+            flex-grow: 1;
+        }
+
+        .certificate-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .certificate-link, .certificate-download {
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-align: center;
+            border: 2px solid;
+            font-size: 14px;
         }
 
         .certificate-link {
-            display: inline-block;
-            padding: 10px 20px;
             background: var(--primary);
+            border-color: var(--primary);
             color: white;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: var(--transition);
         }
 
         .certificate-link:hover {
+            background: transparent;
+            color: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(125, 90, 80, 0.2);
+        }
+
+        .certificate-download {
+            background: transparent;
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .certificate-download:hover {
             background: var(--accent);
-            transform: translateY(-3px);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(125, 90, 80, 0.2);
         }
 
         /* Контакты */
@@ -550,6 +589,10 @@
 
         /* Адаптивность */
         @media (max-width: 768px) {
+            header {
+                padding: 70px 0 40px;
+            }
+
             header h1 {
                 font-size: 2.3rem;
             }
@@ -578,6 +621,32 @@
             .profile-img {
                 width: 170px;
                 height: 170px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .certificate-buttons {
+                flex-direction: column;
+            }
+
+            .certificate-link, .certificate-download {
+                padding: 10px 16px;
+                font-size: 13px;
+            }
+
+            .about-content {
+                gap: 30px;
+            }
+
+            .skill-list {
+                gap: 10px;
+            }
+
+            .skill-item {
+                padding: 10px 16px;
+                font-size: 0.9rem;
             }
         }
 
@@ -612,65 +681,6 @@
             background: var(--accent);
             transform: translateY(-5px);
         }
-
-        /* Стили для кнопок сертификатов - добавить в конец CSS */
-        .certificate-content {
-         display: flex;
-          flex-direction: column;
-          height: 100%;
-        }
-
-        .certificate-content .certificate-link,
-        .certificate-content .certificate-download {
-         margin-top: 12px;
-    padding: 12px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 500;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    text-align: center;
-    border: 2px solid;
-    font-size: 14px;
-}
-
-.certificate-content .certificate-link {
-    background: var(--primary);
-    border-color: var(--primary);
-    color: white;
-}
-
-.certificate-content .certificate-link:hover {
-    background: transparent;
-    color: var(--primary);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(125, 90, 80, 0.2);
-}
-
-.certificate-content .certificate-download {
-    background: transparent;
-    border-color: var(--accent);
-    color: var(--accent);
-}
-
-.certificate-content .certificate-download:hover {
-    background: var(--accent);
-          color: white;
-        transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(125, 90, 80, 0.2);
-}
-
-/* Адаптивность для мобильных */
-@media (max-width: 768px) {
-    .certificate-content .certificate-link,
-    .certificate-content .certificate-download {
-        padding: 10px 16px;
-        font-size: 13px;
-    }
-}
     </style>
 </head>
 <body>
@@ -767,22 +777,6 @@
                     </div>
                 </div>
             </div>
-            <!--
-            <div class="project-card fade-in delay-2">
-                <div class="project-img">
-                    <i class="fas fa-code"></i>
-                </div>
-                <div class="project-content">
-                    <h3>Автотесты на языке Java</h3>
-                    <p>Написание автотестов для веб-приложений с использованием Java.</p>
-                    <div class="project-tags">
-                        <span class="project-tag">Java</span>
-                        <span class="project-tag">Автотесты</span>
-                        <span class="project-tag">Тестирование</span>
-                    </div>
-                </div>
-            </div>
-            -->
         </div>
     </section>
 
@@ -793,55 +787,71 @@
         </div>
         <div class="certificates-grid">
             <div class="certificate-card fade-in">
-                <div class="certificate-img" onclick="window.open('certificate-git.pdf', '_blank')">
+                <div class="certificate-img" onclick="viewCertificate('certificate-git.pdf')">
                     <i class="fas fa-award"></i>
                 </div>
                 <div class="certificate-content">
                     <h3>Сертификат Git</h3>
                     <p>Подтверждает мои знания в работе с системой контроля версий Git, включая branching, merging и работу с удаленными репозиториями.</p>
-                    <a href="certificate-git.pdf" class="certificate-link" target="_blank">Посмотреть сертификат</a>
-                    <a href="certificate-git.pdf" class="certificate-download download-btn" download>
-                        <i class="fas fa-download"></i> Скачать
-                    </a>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificate-git.pdf')">
+                            <i class="fas fa-eye"></i> Посмотреть сертификат
+                        </a>
+                        <a href="certificate-git.pdf" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="certificate-card fade-in delay-1">
-                <div class="certificate-img" onclick="window.open('certificate-qa.pdf', '_blank')">
+                <div class="certificate-img" onclick="viewCertificate('certificate-qa.pdf')">
                     <i class="fas fa-award"></i>
                 </div>
                 <div class="certificate-content">
                     <h3>Ручное тестирование</h3>
                     <p>Сертификат, подтверждающий знания основ ручного тестирования программного обеспечения, методологий и процессов обеспечения качества, тестовой документации.</p>
-                    <a href="certificate-qa.pdf" class="certificate-link" target="_blank">Посмотреть сертификат</a>
-                    <a href="certificate-qa.pdf" class="certificate-download download-btn" download>
-                        <i class="fas fa-download"></i> Скачать
-                    </a>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificate-qa.pdf')">
+                            <i class="fas fa-eye"></i> Посмотреть сертификат
+                        </a>
+                        <a href="certificate-qa.pdf" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="certificate-card fade-in delay-2">
-                <div class="certificate-img" onclick="window.open('certificate-java.pdf', '_blank')">
+                <div class="certificate-img" onclick="viewCertificate('certificate-java.pdf')">
                     <i class="fas fa-award"></i>
                 </div>
                 <div class="certificate-content">
                     <h3>Сертификат Java</h3>
                     <p>Подтверждает мои знания языка программирования Java для тестировщиков, включая ООП, коллекции, исключения и основы написания автотестов.</p>
-                    <a href="certificate-java.pdf" class="certificate-link" target="_blank">Посмотреть сертификат</a>
-                    <a href="certificate-java.pdf" class="certificate-download download-btn" download>
-                        <i class="fas fa-download"></i> Скачать
-                    </a>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificate-java.pdf')">
+                            <i class="fas fa-eye"></i> Посмотреть сертификат
+                        </a>
+                        <a href="certificate-java.pdf" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="certificate-card fade-in delay-3">
-                <div class="certificate-img" onclick="window.open('certificate-automation.pdf', '_blank')">
+                <div class="certificate-img" onclick="viewCertificate('certificate-automation.pdf')">
                     <i class="fas fa-award"></i>
                 </div>
                 <div class="certificate-content">
                     <h3>Автоматизированное тестирование</h3>
                     <p>Сертификат, подтверждающий знания в области автоматизации тестирования, включая создание автотестов, работу с фреймворками и инструментами автоматизации.</p>
-                    <a href="certificate-automation.pdf" class="certificate-link" target="_blank">Посмотреть сертификат</a>
-                    <a href="certificate-automation.pdf" class="certificate-download download-btn" download>
-                        <i class="fas fa-download"></i> Скачать
-                    </a>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificate-automation.pdf')">
+                            <i class="fas fa-eye"></i> Посмотреть сертификат
+                        </a>
+                        <a href="certificate-automation.pdf" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -917,90 +927,95 @@
 
 <script>
     // Плавная прокрутка для навигационных ссылок
-   document.querySelectorAll('nav a').forEach(anchor => {
-       anchor.addEventListener('click', function(e) {
-           const targetId = this.getAttribute('href');
+    document.querySelectorAll('nav a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
 
-           // ДОБАВИЛ: Проверка на внешние ссылки
-           if (targetId.startsWith('http')) {
-               return; // Позволяем перейти по внешней ссылке
-           }
+            // ДОБАВИЛ: Проверка на внешние ссылки
+            if (targetId.startsWith('http')) {
+                return; // Позволяем перейти по внешней ссылке
+            }
 
-           e.preventDefault();
-           const targetElement = document.querySelector(targetId);
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
 
-           window.scrollTo({
-               top: targetElement.offsetTop - 80,
-               behavior: 'smooth'
-           });
-       });
-   });
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+    });
 
-   // Плавная прокрутка для ссылок в футере
-   document.querySelectorAll('footer a').forEach(anchor => {
-       anchor.addEventListener('click', function(e) {
-           const targetId = this.getAttribute('href');
+    // Плавная прокрутка для ссылок в футере
+    document.querySelectorAll('footer a').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
 
-           // ДОБАВИЛ: Проверка на внешние ссылки
-           if (targetId.startsWith('http')) {
-               return; // Позволяем перейти по внешней ссылке
-           }
+            // ДОБАВИЛ: Проверка на внешние ссылки
+            if (targetId.startsWith('http')) {
+                return; // Позволяем перейти по внешней ссылке
+            }
 
-           e.preventDefault();
-           const targetElement = document.querySelector(targetId);
+            e.preventDefault();
+            const targetElement = document.querySelector(targetId);
 
-           window.scrollTo({
-               top: targetElement.offsetTop - 80,
-               behavior: 'smooth'
-           });
-       });
-   });
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        });
+    });
 
-   // Кнопка возврата наверх
-   const backToTopButton = document.querySelector('.back-to-top');
+    // Кнопка возврата наверх
+    const backToTopButton = document.querySelector('.back-to-top');
 
-   window.addEventListener('scroll', () => {
-       if (window.pageYOffset > 300) {
-           backToTopButton.classList.add('visible');
-       } else {
-           backToTopButton.classList.remove('visible');
-       }
-   });
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
 
-   backToTopButton.addEventListener('click', () => {
-       window.scrollTo({
-           top: 0,
-           behavior: 'smooth'
-       });
-   });
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
 
-   // Анимация элементов при прокрутке
-   const animatedElements = document.querySelectorAll('.fade-in');
+    // Анимация элементов при прокрутке
+    const animatedElements = document.querySelectorAll('.fade-in');
 
-   const observer = new IntersectionObserver((entries) => {
-       entries.forEach(entry => {
-           if (entry.isIntersecting) {
-               entry.target.style.animationPlayState = 'running';
-               observer.unobserve(entry.target);
-           }
-       });
-   }, { threshold: 0.1 });
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
 
-   animatedElements.forEach(element => {
-       element.style.animationPlayState = 'paused';
-       observer.observe(element);
-   });
+    animatedElements.forEach(element => {
+        element.style.animationPlayState = 'paused';
+        observer.observe(element);
+    });
 
-   // Анимация навыков при наведении с задержкой
-   document.querySelectorAll('.skill-item').forEach((item, index) => {
-       item.addEventListener('mouseenter', () => {
-           item.style.transitionDelay = `${index * 0.05}s`;
-       });
+    // Анимация навыков при наведении с задержкой
+    document.querySelectorAll('.skill-item').forEach((item, index) => {
+        item.addEventListener('mouseenter', () => {
+            item.style.transitionDelay = `${index * 0.05}s`;
+        });
 
-       item.addEventListener('mouseleave', () => {
-           item.style.transitionDelay = '0s';
-       });
-   });
+        item.addEventListener('mouseleave', () => {
+            item.style.transitionDelay = '0s';
+        });
+    });
+
+    // Функция для просмотра сертификатов
+    function viewCertificate(filePath) {
+        window.open(filePath, '_blank');
+    }
 </script>
 </body>
 </html>
