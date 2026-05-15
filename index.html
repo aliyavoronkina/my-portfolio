@@ -340,6 +340,25 @@
             color: var(--dark);
         }
 
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+        }
+
+        .project-link:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+        }
+
         /* Сертификаты */
         .certificates-grid {
             display: grid;
@@ -451,6 +470,109 @@
             box-shadow: 0 5px 15px rgba(125, 90, 80, 0.2);
         }
 
+        /* Образование и гибкие навыки */
+        .education-soft-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .education-box, .soft-skills-box {
+            flex: 1;
+            min-width: 280px;
+            background: white;
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(125, 90, 80, 0.1);
+            transition: var(--transition);
+        }
+
+        .education-box:hover, .soft-skills-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(125, 90, 80, 0.12);
+        }
+
+        .education-box h3, .soft-skills-box h3 {
+            color: var(--accent);
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-left: 4px solid var(--primary);
+            padding-left: 20px;
+        }
+
+        .education-item {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--secondary);
+        }
+
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .education-year {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .education-degree {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .education-place {
+            color: var(--text);
+            font-size: 0.95rem;
+            opacity: 0.8;
+        }
+
+        .soft-skill-item {
+            margin-bottom: 25px;
+            padding: 15px;
+            background: var(--light);
+            border-radius: 12px;
+            transition: var(--transition);
+        }
+
+        .soft-skill-item:hover {
+            background: var(--secondary);
+            transform: translateX(8px);
+        }
+
+        .soft-skill-title {
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .soft-skill-title i {
+            color: var(--primary);
+            width: 24px;
+        }
+
+        .soft-skill-desc {
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.5;
+            margin-left: 34px;
+        }
+
         /* Контакты */
         .contact-container {
             display: flex;
@@ -556,6 +678,8 @@
             display: flex;
             gap: 30px;
             margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         .footer-links a {
@@ -648,6 +772,10 @@
                 padding: 10px 16px;
                 font-size: 0.9rem;
             }
+
+            .education-soft-wrapper {
+                flex-direction: column;
+            }
         }
 
         /* Кнопка возврата наверх */
@@ -692,8 +820,7 @@
             <div class="header-content">
                 <h1 class="fade-in delay-1">Алия Воронкина</h1>
                 <p class="fade-in delay-1">Начинающий QA Инженер | Специалист по тестированию ПО</p>
-                <div class="tagline fade-in delay-2">
-                    <i class="fas fa-quote-left"></i> Обеспечиваю качество, на которое можно положиться <i class="fas fa-quote-right"></i>
+
                 </div>
             </div>
         </div>
@@ -707,8 +834,9 @@
             <ul class="nav-links">
                 <li><a href="#about">Обо мне</a></li>
                 <li><a href="#skills">Навыки</a></li>
-                <li><a href="https://github.com/aliyavoronkina" target="_blank">Проекты</a></li>
+                <li><a href="#projects">Проекты</a></li>
                 <li><a href="#certificates">Сертификаты</a></li>
+                <li><a href="#education-soft">Образование</a></li>
                 <li><a href="#contact">Контакты</a></li>
             </ul>
         </div>
@@ -723,58 +851,138 @@
         </div>
         <div class="about-content">
             <div class="about-text">
-                <p>Я — начинающий QA-инженер, совершенствующий свои навыки в области контроля качества и тестирования программного обеспечения на курсе онлайн школы - Нетология. В настоящее время активно изучаю автоматизированное тестирование на языке Java и другие современные технологии.</p>
-                <p>Моя цель — обеспечивать высокое качество выпускаемых продуктов, находить и документировать дефекты.</p>
-                <p>Помимо тестирования, я также имею опыт верстки на HTML и CSS, базовые знания SQL и SEO. Недавно освоила автоматизированное тестирование на Java с использованием Selenium WebDriver, JUnit, TestNG. Умею тестировать REST API, работать с базами данных, использовать Docker для тестовых окружений. В своей работе я активно применяю современный технологический стек: язык программирования Java для написания автотестов, инструменты разработки Visual Studio Code и IntelliJ IDEA, системы контроля версий Git и GitHub.</p>
-                <p>Понимаю важность процессов <strong>Continuous Integration и Continuous Delivery</strong> в современной разработке. Изучаю инструменты CI/CD такие как Jenkins, GitHub Actions для автоматизации запуска тестов и обеспечения качества на каждом этапе разработки.</p>
-                <p>Я владею английским языком на уровне, достаточном для чтения технической литературы и документации. Нахожусь в постоянном поиске новых знаний и с интересом берусь за сложные задачи, чтобы расти как специалист. Готова к обучению и развитию в сфере QA и других сферах IT.</p>
+                <p>Я — начинающий QA-инженер, совершенствующий свои навыки в области контроля качества и тестирования программного обеспечения на курсе онлайн-школы «Нетология». В настоящее время активно изучаю автоматизированное тестирование на языках Java и JavaScript, а также современные технологии и инструменты.</p>
+                <p>Моя цель — обеспечивать высокое качество выпускаемых продуктов, находить и документировать дефекты, а также внедрять автоматизацию для повышения эффективности тестирования.</p>
+                <p>Я владею ручным тестированием веб- и мобильных приложений, умею составлять тест-дизайн, чек-листы, тест-кейсы и баг-репорты. В автоматизации использую <strong>Java (JUnit5, Selenide, REST Assured, Mockito, Maven)</strong> и <strong>JavaScript (Playwright, Cypress, Jest)</strong>. Работаю с базами данных (SQL, PostgreSQL), Docker для развертывания окружений, системами контроля версий Git/GitHub и CI/CD (GitHub Actions).</p>
+                <p>Понимаю важность процессов <strong>Continuous Integration и Continuous Delivery</strong> в современной разработке. Настроил(а) автоматический запуск тестов через GitHub Actions с формированием отчетов в Allure/Report Portal.</p>
+                <p>Также имею опыт тестирования производительности (нагрузочное тестирование), API (Postman, REST Assured), безопасности (инъекции, авторизация) и мобильных приложений (iOS/Android, Charles Proxy, Appium).</p>
+                <p>Владею английским языком на уровне, достаточном для чтения технической литературы и документации. Нахожусь в постоянном поиске новых знаний и с интересом берусь за сложные задачи, чтобы расти как специалист. Готова к обучению и развитию в сфере QA и других направлениях IT.</p>
                 <p>В работе активно использую современные AI-инструменты (ChatGPT, Claude, GitHub Copilot) для оптимизации процессов тестирования, генерации тест-кейсов и анализа кода. Это позволяет мне работать эффективнее и находить неочевидные сценарии тестирования.</p>
             </div>
             <div class="skills" id="skills">
+                <!-- Технические навыки -->
                 <div class="skill-category">
-                    <h3><i class="fas fa-laptop-code"></i> Технические навыки</h3>
+                    <h3><i class="fas fa-laptop-code"></i> Языки и технологии</h3>
                     <div class="skill-list">
                         <span class="skill-item"><i class="fab fa-java"></i> Java</span>
-                        <span class="skill-item"><i class="fab fa-html5"></i> HTML</span>
-                        <span class="skill-item"><i class="fab fa-css3-alt"></i> CSS</span>
+                        <span class="skill-item"><i class="fab fa-js"></i> JavaScript</span>
+                        <span class="skill-item"><i class="fab fa-html5"></i> HTML5</span>
+                        <span class="skill-item"><i class="fab fa-css3-alt"></i> CSS3</span>
                         <span class="skill-item"><i class="fas fa-database"></i> SQL</span>
-                        <span class="skill-item"><i class="fas fa-database"></i> MySQL</span>
                         <span class="skill-item"><i class="fas fa-database"></i> PostgreSQL</span>
                         <span class="skill-item"><i class="fab fa-git-alt"></i> Git</span>
                         <span class="skill-item"><i class="fab fa-github"></i> GitHub</span>
                         <span class="skill-item"><i class="fas fa-code"></i> IntelliJ IDEA</span>
-                        <span class="skill-item"><i class="fas fa-code"></i> VS Code</span>
-                        <span class="skill-item"><i class="fas fa-terminal"></i> Terminal</span>
-                        <span class="skill-item"><i class="fas fa-search"></i> SEO</span>
-                        <span class="skill-item"><i class="fas fa-language"></i> Английский</span>
-                        <span class="skill-item"><i class="fas fa-file-word"></i> Word</span>
-                        <span class="skill-item"><i class="fas fa-file-excel"></i> Excel</span>
-                        <span class="skill-item"><i class="fas fa-tasks"></i> Jira</span>
-                        <span class="skill-item"><i class="fas fa-plug"></i> Postman</span>
-                        <span class="skill-item"><i class="fas fa-window-restore"></i> DevTools</span>
+                        <span class="skill-item"><i class="fas fa-terminal"></i> Linux / Terminal</span>
+                        <span class="skill-item"><i class="fas fa-cogs"></i> Docker</span>
+                        <span class="skill-item"><i class="fab fa-github"></i> GitHub Actions</span>
                     </div>
                 </div>
+
+                <!-- Автоматизация тестирования -->
                 <div class="skill-category">
                     <h3><i class="fas fa-robot"></i> Автоматизация</h3>
                     <div class="skill-list">
-                        <span class="skill-item"><i class="fas fa-code"></i> Selenium</span>
-                        <span class="skill-item"><i class="fas fa-layer-group"></i> Selenide</span>
-                        <span class="skill-item"><i class="fas fa-cogs"></i> Docker</span>
-                        <span class="skill-item"><i class="fas fa-cloud"></i> DevOps основы</span>
+                        <span class="skill-item">JUnit5</span>
+                        <span class="skill-item">Selenide</span>
+                        <span class="skill-item">REST Assured</span>
+                        <span class="skill-item">Mockito</span>
+                        <span class="skill-item">Maven</span>
+                        <span class="skill-item">Gradle</span>
+                        <span class="skill-item">Playwright</span>
+                        <span class="skill-item">Cypress</span>
+                        <span class="skill-item">Jest</span>
+                        <span class="skill-item">Appium</span>
+                        <span class="skill-item">Allure</span>
+                        <span class="skill-item">Report Portal</span>
                     </div>
                 </div>
+
+                <!-- QA и тестирование -->
                 <div class="skill-category">
-                    <h3><i class="fas fa-bug"></i> QA Навыки</h3>
+                    <h3><i class="fas fa-bug"></i> QA и тестирование</h3>
                     <div class="skill-list">
-                        <span class="skill-item"><i class="fas fa-check-square"></i> Тест-кейсы</span>
+                        <span class="skill-item"><i class="fas fa-check-square"></i> Тест-дизайн</span>
                         <span class="skill-item"><i class="fas fa-tasks"></i> Чек-листы</span>
-                        <span class="skill-item"><i class="fas fa-file-alt"></i> Баг-репорты</span>
+                        <span class="skill-item"><i class="fas fa-file-alt"></i> Тест-кейсы</span>
+                        <span class="skill-item"><i class="fas fa-bug"></i> Баг-репорты</span>
                         <span class="skill-item"><i class="fas fa-clipboard-list"></i> Тест-планы</span>
                         <span class="skill-item"><i class="fas fa-hands"></i> Ручное тестирование</span>
-                        <span class="skill-item"><i class="fas fa-mobile-alt"></i> Мобильное тестирование</span>
                         <span class="skill-item"><i class="fas fa-desktop"></i> Веб-тестирование</span>
-                        <span class="skill-item"><i class="fas fa-cogs"></i> Автоматизированное тестирование</span>
+                        <span class="skill-item"><i class="fas fa-mobile-alt"></i> Мобильное тестирование</span>
+                        <span class="skill-item"><i class="fas fa-plug"></i> API тестирование</span>
+                        <span class="skill-item"><i class="fas fa-chart-line"></i> Нагрузочное тестирование</span>
+                        <span class="skill-item"><i class="fas fa-shield-alt"></i> Тестирование безопасности</span>
+                        <span class="skill-item"><i class="fas fa-tasks"></i> Jira</span>
+                        <span class="skill-item"><i class="fas fa-window-restore"></i> DevTools</span>
+                        <span class="skill-item"><i class="fas fa-chart-simple"></i> Charles Proxy</span>
+                        <span class="skill-item"><i class="fas fa-mobile"></i> Android Studio</span>
+                        <span class="skill-item"><i class="fab fa-apple"></i> Xcode</span>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "Проекты" -->
+    <section id="projects">
+        <div class="section-title">
+            <h2>Мои проекты</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-img">
+                    <i class="fas fa-globe"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Автотесты для интернет-магазина</h3>
+                    <p>UI + API тестирование интернет-магазина. Реализованы позитивные и негативные сценарии: корзина, фильтрация, форма заказа. Настроен CI через GitHub Actions с отчетом Allure.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Java</span>
+                        <span class="project-tag">JUnit5</span>
+                        <span class="project-tag">Selenide</span>
+                        <span class="project-tag">REST Assured</span>
+                        <span class="project-tag">Allure</span>
+                    </div>
+                    <a href="https://github.com/aliyavoronkina" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> Смотреть на GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="project-card fade-in delay-1">
+                <div class="project-img">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Тестирование мобильного приложения</h3>
+                    <p>Ручное тестирование Android/iOS приложения (чек-листы, баг-репорты). Настройка сниффинга через Charles Proxy. Написаны автотесты на Appium.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Android Studio</span>
+                        <span class="project-tag">Xcode</span>
+                        <span class="project-tag">Charles Proxy</span>
+                        <span class="project-tag">Appium</span>
+                        <span class="project-tag">Jira</span>
+                    </div>
+                    <a href="https://github.com/aliyavoronkina" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> Смотреть на GitHub
+                    </a>
+                </div>
+            </div>
+            <div class="project-card fade-in delay-2">
+                <div class="project-img">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <div class="project-content">
+                    <h3>Нагрузочное тестирование API</h3>
+                    <p>Создание сценариев нагрузочного тестирования, анализ производительности под нагрузкой, составление отчета с рекомендациями по оптимизации.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">JMeter</span>
+                        <span class="project-tag">Postman</span>
+                        <span class="project-tag">REST API</span>
+                    </div>
+                    <a href="https://github.com/aliyavoronkina" target="_blank" class="project-link">
+                        <i class="fab fa-github"></i> Смотреть на GitHub
+                    </a>
                 </div>
             </div>
         </div>
@@ -786,12 +994,13 @@
             <h2>Мои сертификаты</h2>
         </div>
         <div class="certificates-grid">
+            <!-- 1. Git -->
             <div class="certificate-card fade-in">
                 <div class="certificate-img" onclick="viewCertificate('certificate-git.pdf')">
                     <i class="fas fa-award"></i>
                 </div>
                 <div class="certificate-content">
-                    <h3>Сертификат Git</h3>
+                    <h3>Git — система контроля версий</h3>
                     <p>Подтверждает мои знания в работе с системой контроля версий Git, включая branching, merging и работу с удаленными репозиториями.</p>
                     <div class="certificate-buttons">
                         <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificate-git.pdf')">
@@ -803,12 +1012,14 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 2. Ручное тестирование веб-приложений -->
             <div class="certificate-card fade-in delay-1">
                 <div class="certificate-img" onclick="viewCertificate('certificate-qa.pdf')">
                     <i class="fas fa-award"></i>
                 </div>
                 <div class="certificate-content">
-                    <h3>Ручное тестирование</h3>
+                    <h3>Ручное тестирование веб-приложений</h3>
                     <p>Сертификат, подтверждающий знания основ ручного тестирования программного обеспечения, методологий и процессов обеспечения качества, тестовой документации.</p>
                     <div class="certificate-buttons">
                         <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificate-qa.pdf')">
@@ -820,12 +1031,14 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 3. Java для тестировщиков -->
             <div class="certificate-card fade-in delay-2">
                 <div class="certificate-img" onclick="viewCertificate('certificate-java.pdf')">
                     <i class="fas fa-award"></i>
                 </div>
                 <div class="certificate-content">
-                    <h3>Сертификат Java</h3>
+                    <h3>Java для тестировщиков</h3>
                     <p>Подтверждает мои знания языка программирования Java для тестировщиков, включая ООП, коллекции, исключения и основы написания автотестов.</p>
                     <div class="certificate-buttons">
                         <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificate-java.pdf')">
@@ -837,7 +1050,47 @@
                     </div>
                 </div>
             </div>
+
+            <!-- 4. JavaScript для тестировщиков -->
             <div class="certificate-card fade-in delay-3">
+                <div class="certificate-img" onclick="viewCertificate('certificatejavascript.pdf')">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="certificate-content">
+                    <h3>JavaScript для тестировщиков</h3>
+                    <p>Сертификат, подтверждающий знание JavaScript для написания тестов, работы с DOM-элементами и автоматизации веб-приложений.</p>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificatejavascript.pdf')">
+                            <i class="fas fa-eye"></i> Посмотреть сертификат
+                        </a>
+                        <a href="certificatejavascript.pdf" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Автоматизация тестирования веб-интерфейсов -->
+            <div class="certificate-card fade-in delay-4">
+                <div class="certificate-img" onclick="viewCertificate('certificatweb.pdf')">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="certificate-content">
+                    <h3>Автоматизация тестирования веб-интерфейсов</h3>
+                    <p>Курс по автоматизированному тестированию веб-интерфейсов с использованием современных инструментов и практик.</p>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificatweb.pdf')">
+                            <i class="fas fa-eye"></i> Посмотреть сертификат
+                        </a>
+                        <a href="certificatweb.pdf" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Автоматизированное тестирование -->
+            <div class="certificate-card fade-in delay-5">
                 <div class="certificate-img" onclick="viewCertificate('certificate-automation.pdf')">
                     <i class="fas fa-award"></i>
                 </div>
@@ -851,6 +1104,136 @@
                         <a href="certificate-automation.pdf" class="certificate-download download-btn" download>
                             <i class="fas fa-download"></i> Скачать
                         </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Тестирование производительности -->
+            <div class="certificate-card fade-in delay-6">
+                <div class="certificate-img" onclick="viewCertificate('certificateproizv.pdf')">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="certificate-content">
+                    <h3>Тестирование производительности</h3>
+                    <p>Курс по нагрузочному тестированию, анализу узких мест и оптимизации производительности приложений.</p>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificateproizv.pdf')">
+                            <i class="fas fa-eye"></i> Посмотреть сертификат
+                        </a>
+                        <a href="certificateproizv.pdf" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Тестирование мобильных приложений -->
+            <div class="certificate-card fade-in delay-7">
+                <div class="certificate-img" onclick="viewCertificate('certificatemobile.pdf')">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="certificate-content">
+                    <h3>Тестирование мобильных приложений</h3>
+                    <p>Сертификат об обучению тестированию мобильных приложений (iOS/Android), включая эмуляторы, реальные устройства и чек-листы.</p>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificatemobile.pdf')">
+                            <i class="fas fa-eye"></i> Посмотреть сертификат
+                        </a>
+                        <a href="certificatemobile.pdf" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Тестирование безопасности -->
+            <div class="certificate-card fade-in delay-8">
+                <div class="certificate-img" onclick="viewCertificate('certificatebejopasnost.pdf')">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div class="certificate-content">
+                    <h3>Тестирование безопасности</h3>
+                    <p>Курс по основам безопасности веб-приложений, поиску уязвимостей и методам защиты.</p>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificatebejopasnost.pdf')">
+                            <i class="fas fa-eye"></i> Посмотреть сертификат
+                        </a>
+                        <a href="certificatebejopasnost.pdf" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "Образование и гибкие навыки" -->
+    <section id="education-soft">
+        <div class="section-title">
+            <h2>Образование и гибкие навыки</h2>
+        </div>
+        <div class="education-soft-wrapper">
+            <!-- Блок образования -->
+            <div class="education-box fade-in">
+                <h3><i class="fas fa-graduation-cap"></i> Образование</h3>
+                <div class="education-item">
+                    <div class="education-year">2025 — 2026</div>
+                    <div class="education-degree">QA-инженер / Тестировщик ПО</div>
+                    <div class="education-place">Нетология (онлайн-платформа)</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-year">2020</div>
+                    <div class="education-degree">Среднее профессиональное образование</div>
+                    <div class="education-place">Магнитогорская государственная консерватория им. М.И. Глинки</div>
+                </div>
+                <div class="education-item">
+                    <div class="education-year"> 2028</div>
+                    <div class="education-degree">Высшее образование (заочная форма)</div>
+                    <div class="education-place">Южно-Уральский государственный институт искусств им. П.И. Чайковского</div>
+                </div>
+            </div>
+
+            <!-- Блок гибких навыков -->
+            <div class="soft-skills-box fade-in delay-1">
+                <h3><i class="fas fa-heart"></i> Гибкие навыки</h3>
+                <div class="soft-skill-item">
+                    <div class="soft-skill-title">
+                        <i class="fas fa-calendar-check"></i> Самоорганизация и тайм-менеджмент
+                    </div>
+                    <div class="soft-skill-desc">
+                        Совмещаю учебу в вузе (заочка), обучение на курсах Нетологии и подготовку портфолио. Ежедневно выделяю до 5 часов на домашние задания и проекты, соблюдая все дедлайны.
+                    </div>
+                </div>
+                <div class="soft-skill-item">
+                    <div class="soft-skill-title">
+                        <i class="fas fa-comments"></i> Коммуникация
+                    </div>
+                    <div class="soft-skill-desc">
+                        Оформляю баг-репорты четко и структурированно, умею аргументировать важность дефектов. Работала в групповых проектах, координировала задачи между участниками.
+                    </div>
+                </div>
+                <div class="soft-skill-item">
+                    <div class="soft-skill-title">
+                        <i class="fas fa-brain"></i> Обучаемость
+                    </div>
+                    <div class="soft-skill-desc">
+                        За короткий срок (менее года) освоила Java, JavaScript, Docker, Appium, Selenide, Playwright и другие инструменты с нуля.
+                    </div>
+                </div>
+                <div class="soft-skill-item">
+                    <div class="soft-skill-title">
+                        <i class="fas fa-search"></i> Внимательность к деталям
+                    </div>
+                    <div class="soft-skill-desc">
+                        Нахожу неочевидные граничные сценарии, анализирую логи, предлагаю гипотезы причин дефектов.
+                    </div>
+                </div>
+                <div class="soft-skill-item">
+                    <div class="soft-skill-title">
+                        <i class="fas fa-clock"></i> Работа с дедлайнами
+                    </div>
+                    <div class="soft-skill-desc">
+                        Планирую задачи так, чтобы успевать к срокам без потери качества. Умею расставлять приоритеты.
                     </div>
                 </div>
             </div>
@@ -916,10 +1299,11 @@
                 <a href="#skills">Навыки</a>
                 <a href="#projects">Проекты</a>
                 <a href="#certificates">Сертификаты</a>
+                <a href="#education-soft">Образование</a>
                 <a href="#contact">Контакты</a>
             </div>
             <div class="copyright">
-                © 2025 Алия Воронкина. Все права защищены.
+                © 2026 Алия Воронкина. Все права защищены.
             </div>
         </div>
     </div>
@@ -927,42 +1311,24 @@
 
 <script>
     // Плавная прокрутка для навигационных ссылок
-    document.querySelectorAll('nav a').forEach(anchor => {
+    document.querySelectorAll('nav a, footer a').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const targetId = this.getAttribute('href');
 
-            // ДОБАВИЛ: Проверка на внешние ссылки
-            if (targetId.startsWith('http')) {
-                return; // Позволяем перейти по внешней ссылке
+            if (targetId && targetId.startsWith('http')) {
+                return;
             }
 
-            e.preventDefault();
-            const targetElement = document.querySelector(targetId);
-
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        });
-    });
-
-    // Плавная прокрутка для ссылок в футере
-    document.querySelectorAll('footer a').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const targetId = this.getAttribute('href');
-
-            // ДОБАВИЛ: Проверка на внешние ссылки
-            if (targetId.startsWith('http')) {
-                return; // Позволяем перейти по внешней ссылке
+            if (targetId && targetId !== '#' && targetId.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
             }
-
-            e.preventDefault();
-            const targetElement = document.querySelector(targetId);
-
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
         });
     });
 
@@ -999,17 +1365,6 @@
     animatedElements.forEach(element => {
         element.style.animationPlayState = 'paused';
         observer.observe(element);
-    });
-
-    // Анимация навыков при наведении с задержкой
-    document.querySelectorAll('.skill-item').forEach((item, index) => {
-        item.addEventListener('mouseenter', () => {
-            item.style.transitionDelay = `${index * 0.05}s`;
-        });
-
-        item.addEventListener('mouseleave', () => {
-            item.style.transitionDelay = '0s';
-        });
     });
 
     // Функция для просмотра сертификатов
