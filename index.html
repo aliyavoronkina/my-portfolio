@@ -395,10 +395,18 @@
             font-size: 3rem;
             transition: var(--transition);
             cursor: pointer;
+            overflow: hidden;
         }
 
-        .certificate-card:hover .certificate-img {
-            transform: scale(1.03);
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .certificate-card:hover .certificate-img img {
+            transform: scale(1.05);
         }
 
         .certificate-content {
@@ -809,6 +817,29 @@
             background: var(--accent);
             transform: translateY(-5px);
         }
+
+        /* Стили для изображений дипломов */
+        .diploma-img-wrapper {
+            height: 200px;
+            background: #f5f0eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .diploma-img-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: var(--transition);
+        }
+
+        .diploma-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
@@ -820,8 +851,6 @@
             <div class="header-content">
                 <h1 class="fade-in delay-1">Алия Воронкина</h1>
                 <p class="fade-in delay-1">Начинающий QA Инженер | Специалист по тестированию ПО</p>
-
-                </div>
             </div>
         </div>
     </div>
@@ -833,10 +862,11 @@
         <div class="nav-container">
             <ul class="nav-links">
                 <li><a href="#about">Обо мне</a></li>
-                <li><a href="#skills">Навыки</a></li>
+                <li><a href="#diploma">Диплом</a></li>
                 <li><a href="#projects">Проекты</a></li>
                 <li><a href="#certificates">Сертификаты</a></li>
                 <li><a href="#education-soft">Образование</a></li>
+                <li><a href="#hobbies">Хобби</a></li>
                 <li><a href="#contact">Контакты</a></li>
             </ul>
         </div>
@@ -851,13 +881,19 @@
         </div>
         <div class="about-content">
             <div class="about-text">
-                <p>Я — начинающий QA-инженер, совершенствующий свои навыки в области контроля качества и тестирования программного обеспечения на курсе онлайн-школы «Нетология». В настоящее время активно изучаю автоматизированное тестирование на языках Java и JavaScript, а также современные технологии и инструменты.</p>
-                <p>Моя цель — обеспечивать высокое качество выпускаемых продуктов, находить и документировать дефекты, а также внедрять автоматизацию для повышения эффективности тестирования.</p>
-                <p>Я владею ручным тестированием веб- и мобильных приложений, умею составлять тест-дизайн, чек-листы, тест-кейсы и баг-репорты. В автоматизации использую <strong>Java (JUnit5, Selenide, REST Assured, Mockito, Maven)</strong> и <strong>JavaScript (Playwright, Cypress, Jest)</strong>. Работаю с базами данных (SQL, PostgreSQL), Docker для развертывания окружений, системами контроля версий Git/GitHub и CI/CD (GitHub Actions).</p>
-                <p>Понимаю важность процессов <strong>Continuous Integration и Continuous Delivery</strong> в современной разработке. Настроил(а) автоматический запуск тестов через GitHub Actions с формированием отчетов в Allure/Report Portal.</p>
-                <p>Также имею опыт тестирования производительности (нагрузочное тестирование), API (Postman, REST Assured), безопасности (инъекции, авторизация) и мобильных приложений (iOS/Android, Charles Proxy, Appium).</p>
-                <p>Владею английским языком на уровне, достаточном для чтения технической литературы и документации. Нахожусь в постоянном поиске новых знаний и с интересом берусь за сложные задачи, чтобы расти как специалист. Готова к обучению и развитию в сфере QA и других направлениях IT.</p>
-                <p>В работе активно использую современные AI-инструменты (ChatGPT, Claude, GitHub Copilot) для оптимизации процессов тестирования, генерации тест-кейсов и анализа кода. Это позволяет мне работать эффективнее и находить неочевидные сценарии тестирования.</p>
+                <p>Я — начинающий QA-инженер, прошедший обучение в онлайн-школе «Нетология» по направлению «Инженер по тестированию». Моя программа обучения охватывала все ключевые аспекты контроля качества: от ручного тестирования и тест-дизайна до автоматизации на Java и JavaScript, тестирования веб-интерфейсов, мобильных приложений, производительности и безопасности.</p>
+
+                <p>В ходе обучения я осваивала методологии и виды тестирования, техники тест-дизайна, создание тестовой документации (чек-листы, тест-кейсы, баг-репорты в Jira), а также инструменты для работы с документацией. Также изучала клиент-серверное взаимодействие, особенности тестирования веб-приложений, работу с Chrome DevTools, Charles Proxy и другими инструментами.</p>
+
+                <p>В области автоматизации тестирования я использовала  <strong>Java (JUnit5, Selenide, REST Assured, Mockito, Maven, Gradle)</strong> и <strong>JavaScript (Playwright, Cypress, Jest, Puppeteer)</strong>. Настраивала CI/CD через GitHub Actions с формированием отчетов в Allure и Report Portal. Имею опыт работы с Docker, SQL (PostgreSQL), а также тестированием API (Postman, REST Assured).</p>
+
+                <p>Отдельное внимание уделила мобильному тестированию: ручное тестирование iOS и Android приложений, работа с Xcode, Android Studio, ADB, эмуляторами и симуляторами. Освоила автоматизацию мобильных приложений с использованием Appium, UIAutomator, XCTest и Espresso.</p>
+
+                <p>Изучала тестированию производительности (JMeter) и безопасности веб-приложений (инъекции, авторизация, сессии, куки, сетевая безопасность). В работе активно использовались современные AI-инструменты (ChatGPT, Claude, GitHub Copilot) для оптимизации процессов тестирования, генерации тест-кейсов и анализа кода.</p>
+
+                <p>Владею английским языком на уровне, достаточном для чтения технической литературы и документации (в процессе изучения). Нахожусь в постоянном поиске новых знаний и с интересом берусь за сложные задачи, чтобы расти как специалист. Готова к обучению и развитию в сфере QA и других направлениях IT.</p>
+
+                <p>По образованию я — хормейстер, что развило во мне музыкальный слух, чувство ритма и умение работать в команде. Эти навыки помогают мне находить нестандартные подходы к решению задач и эффективно взаимодействовать с коллегами.</p>
             </div>
             <div class="skills" id="skills">
                 <!-- Технические навыки -->
@@ -891,8 +927,12 @@
                         <span class="skill-item">Gradle</span>
                         <span class="skill-item">Playwright</span>
                         <span class="skill-item">Cypress</span>
+                        <span class="skill-item">Puppeteer</span>
                         <span class="skill-item">Jest</span>
                         <span class="skill-item">Appium</span>
+                        <span class="skill-item">Espresso</span>
+                        <span class="skill-item">UIAutomator</span>
+                        <span class="skill-item">XCTest</span>
                         <span class="skill-item">Allure</span>
                         <span class="skill-item">Report Portal</span>
                     </div>
@@ -918,6 +958,69 @@
                         <span class="skill-item"><i class="fas fa-chart-simple"></i> Charles Proxy</span>
                         <span class="skill-item"><i class="fas fa-mobile"></i> Android Studio</span>
                         <span class="skill-item"><i class="fab fa-apple"></i> Xcode</span>
+                        <span class="skill-item"><i class="fas fa-database"></i> JMeter</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "Диплом" с изображениями (сразу после Обо мне) -->
+    <section id="diploma">
+        <div class="section-title">
+            <h2>Мои дипломы</h2>
+        </div>
+        <div class="certificates-grid">
+            <div class="certificate-card fade-in">
+                <div class="diploma-img-wrapper" onclick="viewCertificate('images/diploma 1.jpg')">
+                    <img src="images/diploma 1.jpg" alt="Диплом страница 1">
+                </div>
+                <div class="certificate-content">
+                    <h3>Диплом (страница 1)</h3>
+                    <p>Первая страница диплома об окончании обучения по направлению «Инженер по тестированию».</p>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('images/diploma 1.jpg')">
+                            <i class="fas fa-eye"></i> Посмотреть
+                        </a>
+                        <a href="images/diploma 1.jpg" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in delay-1">
+                <div class="diploma-img-wrapper" onclick="viewCertificate('images/diploma 2.jpg')">
+                    <img src="images/diploma 2.jpg" alt="Диплом страница 2">
+                </div>
+                <div class="certificate-content">
+                    <h3>Диплом (страница 2)</h3>
+                    <p>Вторая страница диплома с перечнем изученных дисциплин и модулей.</p>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('images/diploma 2.jpg')">
+                            <i class="fas fa-eye"></i> Посмотреть
+                        </a>
+                        <a href="images/diploma 2.jpg" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in delay-2">
+                <div class="diploma-img-wrapper" onclick="viewCertificate('images/diploma3.jpg')">
+                    <img src="images/diploma3.jpg" alt="Диплом детали">
+                </div>
+                <div class="certificate-content">
+                    <h3>Диплом (детали)</h3>
+                    <p>Увеличенная страница с подробным перечнем пройденных курсов и полученных оценок.</p>
+                    <div class="certificate-buttons">
+                        <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('images/diploma3.jpg')">
+                            <i class="fas fa-eye"></i> Посмотреть
+                        </a>
+                        <a href="images/diploma3.jpg" class="certificate-download download-btn" download>
+                            <i class="fas fa-download"></i> Скачать
+                        </a>
                     </div>
                 </div>
             </div>
@@ -955,12 +1058,13 @@
                 </div>
                 <div class="project-content">
                     <h3>Тестирование мобильного приложения</h3>
-                    <p>Ручное тестирование Android/iOS приложения (чек-листы, баг-репорты). Настройка сниффинга через Charles Proxy. Написаны автотесты на Appium.</p>
+                    <p>Ручное тестирование Android/iOS приложения (чек-листы, баг-репорты). Настройка сниффинга через Charles Proxy. Написаны автотесты на Appium и Espresso.</p>
                     <div class="project-tags">
                         <span class="project-tag">Android Studio</span>
                         <span class="project-tag">Xcode</span>
                         <span class="project-tag">Charles Proxy</span>
                         <span class="project-tag">Appium</span>
+                        <span class="project-tag">Espresso</span>
                         <span class="project-tag">Jira</span>
                     </div>
                     <a href="https://github.com/aliyavoronkina" target="_blank" class="project-link">
@@ -994,7 +1098,6 @@
             <h2>Мои сертификаты</h2>
         </div>
         <div class="certificates-grid">
-            <!-- 1. Git -->
             <div class="certificate-card fade-in">
                 <div class="certificate-img" onclick="viewCertificate('certificate-git.pdf')">
                     <i class="fas fa-award"></i>
@@ -1013,7 +1116,6 @@
                 </div>
             </div>
 
-            <!-- 2. Ручное тестирование веб-приложений -->
             <div class="certificate-card fade-in delay-1">
                 <div class="certificate-img" onclick="viewCertificate('certificate-qa.pdf')">
                     <i class="fas fa-award"></i>
@@ -1032,7 +1134,6 @@
                 </div>
             </div>
 
-            <!-- 3. Java для тестировщиков -->
             <div class="certificate-card fade-in delay-2">
                 <div class="certificate-img" onclick="viewCertificate('certificate-java.pdf')">
                     <i class="fas fa-award"></i>
@@ -1051,7 +1152,6 @@
                 </div>
             </div>
 
-            <!-- 4. JavaScript для тестировщиков -->
             <div class="certificate-card fade-in delay-3">
                 <div class="certificate-img" onclick="viewCertificate('certificatejavascript.pdf')">
                     <i class="fas fa-award"></i>
@@ -1070,7 +1170,6 @@
                 </div>
             </div>
 
-            <!-- 5. Автоматизация тестирования веб-интерфейсов -->
             <div class="certificate-card fade-in delay-4">
                 <div class="certificate-img" onclick="viewCertificate('certificatweb.pdf')">
                     <i class="fas fa-award"></i>
@@ -1089,7 +1188,6 @@
                 </div>
             </div>
 
-            <!-- 6. Автоматизированное тестирование -->
             <div class="certificate-card fade-in delay-5">
                 <div class="certificate-img" onclick="viewCertificate('certificate-automation.pdf')">
                     <i class="fas fa-award"></i>
@@ -1108,7 +1206,6 @@
                 </div>
             </div>
 
-            <!-- 7. Тестирование производительности -->
             <div class="certificate-card fade-in delay-6">
                 <div class="certificate-img" onclick="viewCertificate('certificateproizv.pdf')">
                     <i class="fas fa-award"></i>
@@ -1127,14 +1224,13 @@
                 </div>
             </div>
 
-            <!-- 8. Тестирование мобильных приложений -->
             <div class="certificate-card fade-in delay-7">
                 <div class="certificate-img" onclick="viewCertificate('certificatemobile.pdf')">
                     <i class="fas fa-award"></i>
                 </div>
                 <div class="certificate-content">
                     <h3>Тестирование мобильных приложений</h3>
-                    <p>Сертификат об обучению тестированию мобильных приложений (iOS/Android), включая эмуляторы, реальные устройства и чек-листы.</p>
+                    <p>Сертификат тестирования мобильных приложений (iOS/Android), включая эмуляторы, реальные устройства и чек-листы.</p>
                     <div class="certificate-buttons">
                         <a href="javascript:void(0)" class="certificate-link" onclick="viewCertificate('certificatemobile.pdf')">
                             <i class="fas fa-eye"></i> Посмотреть сертификат
@@ -1146,7 +1242,6 @@
                 </div>
             </div>
 
-            <!-- 9. Тестирование безопасности -->
             <div class="certificate-card fade-in delay-8">
                 <div class="certificate-img" onclick="viewCertificate('certificatebejopasnost.pdf')">
                     <i class="fas fa-award"></i>
@@ -1173,12 +1268,11 @@
             <h2>Образование и гибкие навыки</h2>
         </div>
         <div class="education-soft-wrapper">
-            <!-- Блок образования -->
             <div class="education-box fade-in">
                 <h3><i class="fas fa-graduation-cap"></i> Образование</h3>
                 <div class="education-item">
                     <div class="education-year">2025 — 2026</div>
-                    <div class="education-degree">QA-инженер / Тестировщик ПО</div>
+                    <div class="education-degree">Инженер по тестированию (QA)</div>
                     <div class="education-place">Нетология (онлайн-платформа)</div>
                 </div>
                 <div class="education-item">
@@ -1187,13 +1281,12 @@
                     <div class="education-place">Магнитогорская государственная консерватория им. М.И. Глинки</div>
                 </div>
                 <div class="education-item">
-                    <div class="education-year"> 2028</div>
+                    <div class="education-year">2028</div>
                     <div class="education-degree">Высшее образование (заочная форма)</div>
                     <div class="education-place">Южно-Уральский государственный институт искусств им. П.И. Чайковского</div>
                 </div>
             </div>
 
-            <!-- Блок гибких навыков -->
             <div class="soft-skills-box fade-in delay-1">
                 <h3><i class="fas fa-heart"></i> Гибкие навыки</h3>
                 <div class="soft-skill-item">
@@ -1201,7 +1294,7 @@
                         <i class="fas fa-calendar-check"></i> Самоорганизация и тайм-менеджмент
                     </div>
                     <div class="soft-skill-desc">
-                        Совмещаю учебу в вузе (заочка), обучение на курсах Нетологии и подготовку портфолио. Ежедневно выделяю до 5 часов на домашние задания и проекты, соблюдая все дедлайны.
+                        Совмещаю учебу в вузе (заочка), личную жизнь, карьеру в искусстве, хобби. Ставлю цели и иду к ним.
                     </div>
                 </div>
                 <div class="soft-skill-item">
@@ -1217,7 +1310,7 @@
                         <i class="fas fa-brain"></i> Обучаемость
                     </div>
                     <div class="soft-skill-desc">
-                        За короткий срок (менее года) освоила Java, JavaScript, Docker, Appium, Selenide, Playwright и другие инструменты с нуля.
+                        За короткий срок (менее года) освоила Java, JavaScript, Docker, Appium, Selenide, Playwright, Espresso, JMeter и другие инструменты с нуля.
                     </div>
                 </div>
                 <div class="soft-skill-item">
@@ -1235,6 +1328,72 @@
                     <div class="soft-skill-desc">
                         Планирую задачи так, чтобы успевать к срокам без потери качества. Умею расставлять приоритеты.
                     </div>
+                </div>
+                <div class="soft-skill-item">
+                    <div class="soft-skill-title">
+                        <i class="fas fa-music"></i> Музыкальность и творческое мышление
+                    </div>
+                    <div class="soft-skill-desc">
+                        Образование хормейстера развило чувство ритма, гармонии и умение работать в коллективе. Эти качества помогают структурировать процессы и находить творческие решения в тестировании.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Раздел "Хобби и увлечения" -->
+    <section id="hobbies">
+        <div class="section-title">
+            <h2>Хобби и увлечения</h2>
+        </div>
+        <div class="certificates-grid">
+            <div class="certificate-card fade-in">
+                <div class="certificate-img" style="background: linear-gradient(45deg, #e8d5c4, #d4b8a4);">
+                    <i class="fas fa-running" style="font-size: 4rem;"></i>
+                </div>
+                <div class="certificate-content">
+                    <h3>Спорт и фитнес</h3>
+                    <p>Активно занимаюсь спортом, люблю бег и фитнес (силовой тренинг). Спорт помогает поддерживать энергию, дисциплину и концентрацию — качества, важные в работе QA-инженера.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in delay-1">
+                <div class="certificate-img" style="background: linear-gradient(45deg, #d4c5a9, #c4b89a);">
+                    <i class="fas fa-gem" style="font-size: 4rem;"></i>
+                </div>
+                <div class="certificate-content">
+                    <h3>Изготовление украшений</h3>
+                    <p>Создаю украшения из натуральных камней. Это кропотливое и творческое занятие развивает внимание к деталям, усидчивость и чувство прекрасного.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in delay-2">
+                <div class="certificate-img" style="background: linear-gradient(45deg, #d4b8c4, #c4a8b8);">
+                    <i class="fas fa-palette" style="font-size: 4rem;"></i>
+                </div>
+                <div class="certificate-content">
+                    <h3>Вышивка и рукоделие</h3>
+                    <p>Вышиваю в свободное время. Это занятие тренирует терпение, аккуратность и умение доводить начатое до конца — навыки, которые пригождаются при написании автотестов.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in delay-3">
+                <div class="certificate-img" style="background: linear-gradient(45deg, #e8d5c4, #d4c4b8);">
+                    <i class="fas fa-users" style="font-size: 4rem;"></i>
+                </div>
+                <div class="certificate-content">
+                    <h3>Семья</h3>
+                    <p>Я — мама маленькой девочки. Семья вдохновляет меня на развитие и достижение новых целей, а родительский опыт учит терпению, гибкости и умению находить подход к разным людям.</p>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in delay-4">
+                <div class="certificate-img" style="background: linear-gradient(45deg, #c4d4c4, #a8c4a8);">
+                    <i class="fas fa-microphone" style="font-size: 4rem;"></i>
+                </div>
+                <div class="certificate-content">
+                    <h3>Вокал и музыка</h3>
+                    <p>Пою и продолжаю развивать свои музыкальные навыки. Музыка помогает снимать стресс, вдохновляет и дает творческую энергию для решения сложных задач.</p>
                 </div>
             </div>
         </div>
@@ -1296,10 +1455,11 @@
             <div class="footer-logo">АВ</div>
             <div class="footer-links">
                 <a href="#about">Обо мне</a>
-                <a href="#skills">Навыки</a>
+                <a href="#diploma">Диплом</a>
                 <a href="#projects">Проекты</a>
                 <a href="#certificates">Сертификаты</a>
                 <a href="#education-soft">Образование</a>
+                <a href="#hobbies">Хобби</a>
                 <a href="#contact">Контакты</a>
             </div>
             <div class="copyright">
@@ -1367,7 +1527,7 @@
         observer.observe(element);
     });
 
-    // Функция для просмотра сертификатов
+    // Функция для просмотра сертификатов и дипломов
     function viewCertificate(filePath) {
         window.open(filePath, '_blank');
     }
